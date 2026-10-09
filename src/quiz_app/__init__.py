@@ -1,8 +1,18 @@
 from flask import Flask
-from config import Config
+from config import Config, TestConfig
 
-app = Flask(__name__)
 
-app.config.from_object(Config)
+def create_app(test=False):
+    app = Flask(__name__)
 
-from quiz_app import routes
+    if not test:
+        app.config.from_object(Config)
+    else:
+        app.config.from_object(TestConfig)
+
+    with app.app_context():
+        from quiz_app import routes
+
+        app.register_blueprint(routes.bp)
+
+        return app

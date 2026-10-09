@@ -1,8 +1,8 @@
-from flask import render_template
+from flask import Blueprint, render_template
 
-from quiz_app import app
+bp = Blueprint("main", __name__)
 
 
-@app.route("/")
+@bp.route("/")
 def index():
     return render_template("index.html")
