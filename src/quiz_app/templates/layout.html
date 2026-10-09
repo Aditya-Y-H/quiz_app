@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="{% block meta_description %}{% endblock %}">
+	<title>{% block title %}Quizzer{% endblock %}</title>
+	{% block head %}{% endblock %}
+</head>
+<body>
+	<header>
+		{% block header %}{% endblock %}
+	</header>
+
+	<main id="main-content">
+		{% block content %}{% endblock %}
+	</main>
+
+	<footer>
+		{% block footer %}{% endblock %}
+	</footer>
+
+	{% block scripts %}{% endblock %}
+</body>
+</html>
