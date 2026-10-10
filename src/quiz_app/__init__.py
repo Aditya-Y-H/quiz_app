@@ -15,9 +15,8 @@ def create_app(test=False):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    with app.app_context():
-        from quiz_app import routes
+    from quiz_app import routes
 
-        app.register_blueprint(routes.bp)
+    app.register_blueprint(routes.bp)
 
-        return app
+    return app
