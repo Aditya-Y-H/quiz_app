@@ -22,4 +22,6 @@ def create_app(test=False):
 
     app.register_blueprint(routes.bp)
 
+    from quiz_app import models
+
     return app
