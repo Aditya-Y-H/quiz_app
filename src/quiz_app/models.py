@@ -5,6 +5,15 @@ from extensions import db
 from typing import Literal
 
 
+class User(db.Model):
+    __tablename__ = "users"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(nullable=False)
+    hashed_password: Mapped[str] = mapped_column(nullable=False)
+    decks: Mapped[list["Deck"]] = relationship(back_populates="user")
+
+
 class Question(db.Model):
     __tablename__ = "questions"
 
@@ -30,3 +39,5 @@ class Deck(db.Model):
     name: Mapped[str] = mapped_column(nullable=False)
     description: Mapped[str] = mapped_column(nullable=True)
     questions: Mapped[list[Question]] = relationship(back_populates="deck")
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    user: Mapped[User] = relationship(back_populates="decks")
