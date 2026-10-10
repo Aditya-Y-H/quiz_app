@@ -1,10 +1,32 @@
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import CheckConstraint, ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from extensions import db
 
+from typing import Literal
 
-class question(db.Model):
+
+class Question(db.Model):
     __tablename__ = "questions"
+
+    __table_args__ = (
+        CheckConstraint("answer IN ('A', 'B', 'C', 'D')", name="valid_answer"),
+    )
 
     id: Mapped[int] = mapped_column(primary_key=True)
     question: Mapped[str] = mapped_column(nullable=False)
-    answer: Mapped[str] = mapped_column(nullable=False)
+    option_a: Mapped[str] = mapped_column(nullable=False)
+    option_b: Mapped[str] = mapped_column(nullable=False)
+    option_c: Mapped[str] = mapped_column(nullable=False)
+    option_d: Mapped[str] = mapped_column(nullable=False)
+    answer: Mapped[Literal["A", "B", "C", "D"]] = mapped_column(nullable=False)
+    deck_id: Mapped[int] = mapped_column(ForeignKey("decks.id"), nullable=False)
+    deck: Mapped["Deck"] = relationship(back_populates="questions")
+
+
+class Deck(db.Model):
+    __tablename__ = "decks"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(nullable=False)
+    description: Mapped[str] = mapped_column(nullable=True)
+    questions: Mapped[list[Question]] = relationship(back_populates="deck")
