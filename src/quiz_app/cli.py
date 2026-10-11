@@ -13,7 +13,7 @@ SEED_FILE = Path("seed") / "decks.json"
 @click.command("seed")
 @with_appcontext
 def seed():
-    with open("seed/decks.json") as f:
+    with SEED_FILE.open() as f:
         data = json.load(f)
 
     for datum in data:

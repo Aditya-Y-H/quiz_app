@@ -1,16 +1,17 @@
 import logging
 from logging.handlers import RotatingFileHandler
-import os
+from pathlib import Path
 
 from flask import Flask
 
+LOG_DIR = Path("logs")
+
 
 def logger_init(app: Flask):
-    if not os.path.exists("logs"):
-        os.mkdir("logs")
+    LOG_DIR.mkdir(exist_ok=True)
 
     file_handler = RotatingFileHandler(
-        "logs/quiz_app.log", maxBytes=10_000_000, backupCount=10
+        LOG_DIR / "quiz_app.log", maxBytes=10_000_000, backupCount=10
     )
     file_handler.setFormatter(
         logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")

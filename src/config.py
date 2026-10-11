@@ -1,5 +1,8 @@
 import os
 from datetime import timedelta
+from pathlib import Path
+
+DEFAULT_DATABASE_PATH = Path("quiz_app.db")
 
 
 class Config:
@@ -8,7 +11,9 @@ class Config:
     DEBUG = os.environ.get("FLASK_DEBUG", "0").lower() in ("1", "true", "yes")
 
     # Database
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL", "sqlite:///quiz_app.db")
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL", f"sqlite:///{DEFAULT_DATABASE_PATH}"
+    )
 
     # Sessions
     PERMANENT_SESSION_LIFETIME = timedelta(minutes=30)
