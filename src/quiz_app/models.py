@@ -11,14 +11,18 @@ class User(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(nullable=False)
     hashed_password: Mapped[str] = mapped_column(nullable=False)
-    decks: Mapped[list["Deck"]] = relationship(back_populates="user")
+    decks: Mapped[list["Deck"]] = relationship(
+        back_populates="user", cascade="all, delete-orphan"
+    )
 
 
 class Question(db.Model):
     __tablename__ = "questions"
 
     __table_args__ = (
-        CheckConstraint("answer IN ('A', 'B', 'C', 'D')", name="valid_answer"),
+        CheckConstraint(
+            "answer IN ('A', 'B', 'C', 'D')", name="ck_questions_valid_answer"
+        ),
     )
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -36,8 +40,11 @@ class Deck(db.Model):
     __tablename__ = "decks"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    slug: Mapped[str | None] = mapped_column(unique=True, nullable=True)
     name: Mapped[str] = mapped_column(nullable=False)
-    description: Mapped[str] = mapped_column(nullable=True)
-    questions: Mapped[list[Question]] = relationship(back_populates="deck")
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    description: Mapped[str | None] = mapped_column(nullable=True)
+    questions: Mapped[list[Question]] = relationship(
+        back_populates="deck", cascade="all, delete-orphan"
+    )
+    user_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
     user: Mapped[User] = relationship(back_populates="decks")

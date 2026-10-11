@@ -4,6 +4,8 @@ from config import Config, TestConfig
 from extensions import db, migrate
 from logger import logger_debug_init, logger_init
 
+from quiz_app.cli import seed
+
 
 def create_app(test=False):
     app = Flask(__name__)
@@ -17,6 +19,8 @@ def create_app(test=False):
 
     db.init_app(app)
     migrate.init_app(app, db)
+
+    app.cli.add_command(seed)
 
     from quiz_app import routes
 

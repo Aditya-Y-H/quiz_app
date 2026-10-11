@@ -41,8 +41,15 @@ def test_user_has_many_decks(db):
     user = User(name="quizzer", hashed_password="hashed-value")
     user.decks.extend(
         [
-            Deck(name="Geography", description="World geography", user=user),
-            Deck(name="History", description="World history", user=user),
+            Deck(
+                name="Geography",
+                description="World geography",
+                user=user,
+                slug="geography",
+            ),
+            Deck(
+                name="History", description="World history", user=user, slug="history"
+            ),
         ]
     )
 
