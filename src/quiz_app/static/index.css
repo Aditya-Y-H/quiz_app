@@ -1,0 +1,76 @@
+#main-content {
+    display: grid;
+    grid-template-columns: 165px 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas:
+        "sidebar search-bar"
+        "sidebar deck-container";
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.search-bar {
+    grid-area: search-bar;
+    background-color: #e0e0e0;
+    padding: 20px;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.deck-container {
+    grid-area: deck-container;
+    background-color: #d0d0d0;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.deck-container__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deck-container__head-left {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+}
+
+.deck-container__head-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.deck {
+    background-color: aliceblue;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+}
+
+.deck__icon,
+.deck__play,
+.deck__edit {
+    flex: 0 0 auto;
+}
+
+.deck__info {
+    flex: 3 1 auto;
+}
+
+.deck__statistics {
+    flex: 1 1 auto;
+}
+

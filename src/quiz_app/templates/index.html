@@ -1,5 +1,50 @@
 {% extends "layout.html" %}
 
+{% block head %}
+		<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+
 {% block content %}
-	<h1>Hello, world!</h1>
+	<div class="sidebar">
+		<div class="sidebar__header"><span class="sidebar__header-icon"></span><span class="sidebar__header-title">Quizzer</span></div>
+	</div>
+	<div class="search-bar">
+		<div class="search-bar__bar">
+			<input type="text" class="search-bar__input" placeholder="Search for a deck...">
+		</div>
+		<div class="search-bar__login">
+			<button class="search-bar__login-btn">Login</button>
+		</div>
+	</div>
+	<div class="deck-container">
+		<div class="deck-container__head">
+			<div class="deck-container__head-left">
+
+				<h2>My Decks</h2>
+				<p>Create and manage your flashcard decks.</p>
+			</div>
+			<div class="deck-container__head-right">
+				<button class="deck-container__create-btn">New Deck</button>
+			</div>
+		</div>
+		<div class="deck-container__list">
+			<div class="deck">
+				<span class="deck__icon"></span>
+				<div class="deck__info">
+					<h3 class="deck__title">Sample Deck</h3>
+					<p class="deck__description">This is a sample deck description.</p>
+				</div>
+				<div class="deck__statistics">
+					<span class="deck__statistics-count">5</span>
+					<span class="deck__statistics-accuracy">53%</span>
+				</div>
+				<div class="deck__play">
+					<button class="deck__play-btn">Play</button>
+				</div>
+				<div class="deck__edit">
+					<button class="deck__edit-btn">Edit</button>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
