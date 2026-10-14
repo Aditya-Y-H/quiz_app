@@ -5,28 +5,76 @@
     grid-template-areas:
         "sidebar search-bar"
         "sidebar deck-container";
+    color: #17283d;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .sidebar {
     grid-area: sidebar;
-    background-color: #f0f0f0;
+    background-color: #f4f6f9;
     padding: 20px;
+    border-right: 1px solid #e2e8f0;
+}
+
+.sidebar__header {
+    padding: 2px 4px 18px;
+    border-bottom: 1px solid #e5eaf1;
+    color: #15263b;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sidebar__header-title {
+    color: inherit;
 }
 
 .search-bar {
     grid-area: search-bar;
-    background-color: #e0e0e0;
-    padding: 20px;
+    background-color: #ffffff;
+    padding: 14px 24px;
+    border-bottom: 1px solid #e5eaf1;
 
     display: flex;
     justify-content: flex-end;
     gap: 8px;
 }
 
+.search-bar__bar {
+    padding: 0 12px;
+    border: 1px solid #e7ebf1;
+    border-radius: 7px;
+    background-color: #f7f8fa;
+}
+
+.search-bar__input {
+    padding: 8px 2px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #20334b;
+    font: inherit;
+    font-size: 13px;
+}
+
+.search-bar__input::placeholder {
+    color: #8290a2;
+    opacity: 1;
+}
+
+.search-bar__login-btn {
+    padding: 8px 15px;
+    border: 1px solid #e0e6ee;
+    border-radius: 7px;
+    background-color: #ffffff;
+    color: #263b54;
+    font: inherit;
+    font-size: 14px;
+}
+
 .deck-container {
     grid-area: deck-container;
-    background-color: #d0d0d0;
-    padding: 20px;
+    background-color: #ffffff;
+    padding: 28px 32px;
 
     display: flex;
     flex-direction: column;
@@ -51,10 +99,42 @@
     justify-content: flex-end;
 }
 
+.deck-container__head-left h2 {
+    margin: 0 0 5px;
+    color: #14263a;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.deck-container__head-left p {
+    margin: 0 0 24px;
+    color: #77869a;
+    font-size: 14px;
+}
+
+.deck-container__create-btn,
+.deck__play-btn {
+    padding: 10px 18px;
+    border: 1px solid #2878ed;
+    border-radius: 8px;
+    background-color: #3182f6;
+    color: #ffffff;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.deck-container__create-btn {
+    margin-top: 4px;
+}
 
 .deck {
-    background-color: aliceblue;
-    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 16px 20px;
+    border: 1px solid #e5eaf1;
+    border-radius: 9px;
+    background-color: #ffffff;
+    color: #1a2c42;
 
     display: flex;
     align-items: center;
@@ -70,7 +150,77 @@
     flex: 3 1 auto;
 }
 
+.deck__icon {
+    margin-right: 16px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background-color: #e2edff;
+    color: #2878ed;
+}
+
+.deck__title {
+    margin: 0 0 5px;
+    color: #1b2c41;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.deck__description {
+    margin: 0;
+    color: #77869a;
+    font-size: 13px;
+}
+
 .deck__statistics {
     flex: 1 1 auto;
+    padding-left: 18px;
+    border-left: 1px solid #e5eaf1;
+    color: #26384f;
+    font-size: 13px;
+}
+
+.deck__statistics-count,
+.deck__statistics-accuracy {
+    padding: 0 10px;
+}
+
+.deck__statistics-accuracy {
+    border-left: 1px solid #e5eaf1;
+}
+
+.deck__play {
+    margin: 0 14px;
+}
+
+.deck__play-btn {
+    padding: 9px 20px;
+}
+
+.deck__edit-btn {
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #8290a2;
+    font: inherit;
+    font-size: 13px;
+}
+
+.search-bar__login-btn,
+.deck-container__create-btn,
+.deck__play-btn,
+.deck__edit-btn {
+    cursor: pointer;
+}
+
+.search-bar__login-btn:hover,
+.deck__edit-btn:hover {
+    background-color: #f3f6fa;
+}
+
+.deck-container__create-btn:hover,
+.deck__play-btn:hover {
+    background-color: #236fdf;
+    border-color: #236fdf;
 }
 
