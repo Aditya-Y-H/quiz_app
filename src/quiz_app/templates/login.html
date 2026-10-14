@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block head %}
+		<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+{% endblock %}
+
+{% block content %}
+	<section class="login" aria-label="Log in to Quizzer">
+		<div class="login__brand">
+			<div class="login__brand-copy">
+				<h1 class="login__brand-name">Quizzer</h1>
+				<p class="login__tagline">Learn. Practice. Remember.</p>
+			</div>
+		</div>
+		<div class="login__panel-wrap">
+			<div class="login__panel">
+				<h2 class="login__heading">Welcome back</h2>
+				<p class="login__intro">Sign in to continue to Quizzer.</p>
+				<form class="login__form" method="post">
+					<label class="login__field">
+						<span class="login__label">Username</span>
+						<input class="login__input" type="text" name="username" placeholder="Enter your username" autocomplete="username" required>
+					</label>
+					<label class="login__field">
+						<span class="login__label">Password</span>
+						<input class="login__input" type="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+					</label>
+					<button class="login__submit" type="submit">Log In</button>
+				</form>
+				<div class="login__divider"><span>or</span></div>
+				<p class="login__signup">Don't have an account? <a class="login__link" href="{{ url_for('main.register') }}">Create account</a></p>
+			</div>
+		</div>
+	</section>
+{% endblock %}
