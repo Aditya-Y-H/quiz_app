@@ -28,23 +28,31 @@
 			</div>
 		</div>
 		<div class="deck-container__list">
-			<div class="deck">
-				<span class="deck__icon"></span>
-				<div class="deck__info">
-					<h3 class="deck__title">Sample Deck</h3>
-					<p class="deck__description">This is a sample deck description.</p>
+			{% if decks %}
+				{% for deck in decks %}
+				<div class="deck">
+					<span class="deck__icon"></span>
+					<div class="deck__info">
+						<h3 class="deck__title">{{ deck.name }}</h3>
+						<p class="deck__description">{{ deck.description or "No description." }}</p>
+					</div>
+					<div class="deck__statistics">
+						<span class="deck__statistics-count">{{ deck.questions|length }} questions</span>
+					</div>
+					<div class="deck__play">
+						<button class="deck__play-btn">Play</button>
+					</div>
+					<div class="deck__edit">
+						<button class="deck__edit-btn">Edit</button>
+					</div>
 				</div>
-				<div class="deck__statistics">
-					<span class="deck__statistics-count">5</span>
-					<span class="deck__statistics-accuracy">53%</span>
+				{% endfor %}
+			{% else %}
+				<div class="deck-empty">
+					<p>No decks yet. Add one to get started.</p>
+					<button class="deck-container__create-btn">Add Deck</button>
 				</div>
-				<div class="deck__play">
-					<button class="deck__play-btn">Play</button>
-				</div>
-				<div class="deck__edit">
-					<button class="deck__edit-btn">Edit</button>
-				</div>
-			</div>
+			{% endif %}
 		</div>
 	</div>
 {% endblock %}
