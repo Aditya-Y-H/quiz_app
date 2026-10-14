@@ -20,15 +20,15 @@
 					{{ form.hidden_tag() }}
 					<label class="register__field">
 						<span class="register__label">Username</span>
-						<input class="register__input" type="text" name="username" placeholder="Choose a username" autocomplete="username" required>
+						{{ form.username(class_="register__input", placeholder="Choose a username", autocomplete="username") }}
 					</label>
 					<label class="register__field">
 						<span class="register__label">Password</span>
-						<input class="register__input" type="password" name="password" placeholder="Create a password" autocomplete="new-password" required>
+						{{ form.password(class_="register__input", placeholder="Create a password", autocomplete="new-password") }}
 					</label>
 					<label class="register__field">
 						<span class="register__label">Confirm password</span>
-						<input class="register__input" type="password" name="confirm_password" placeholder="Confirm your password" autocomplete="new-password" required>
+						{{ form.confirm_password(class_="register__input", placeholder="Confirm your password", autocomplete="new-password") }}
 					</label>
 					<button class="register__submit" type="submit">Create account</button>
 				</form>

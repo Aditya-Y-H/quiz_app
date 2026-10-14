@@ -17,13 +17,14 @@
 				<h2 class="login__heading">Welcome back</h2>
 				<p class="login__intro">Sign in to continue to Quizzer.</p>
 				<form class="login__form" method="post">
+					{{ form.hidden_tag() }}
 					<label class="login__field">
 						<span class="login__label">Username</span>
-						<input class="login__input" type="text" name="username" placeholder="Enter your username" autocomplete="username" required>
+						{{ form.username(class_="login__input", placeholder="Enter your username", autocomplete="username") }}
 					</label>
 					<label class="login__field">
 						<span class="login__label">Password</span>
-						<input class="login__input" type="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+						{{ form.password(class_="login__input", placeholder="Enter your password", autocomplete="current-password") }}
 					</label>
 					<button class="login__submit" type="submit">Log In</button>
 				</form>
