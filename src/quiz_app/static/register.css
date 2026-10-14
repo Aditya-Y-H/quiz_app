@@ -1,0 +1,170 @@
+#main-content {
+	min-height: 100vh;
+}
+
+.register {
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	color: #14263e;
+	background: #f5f8fd;
+	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.register__brand,
+.register__panel-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 40px;
+}
+
+.register__brand-copy {
+	text-align: center;
+}
+
+.register__brand-name {
+	margin: 0 0 10px;
+	font-size: 42px;
+	font-weight: 700;
+}
+
+.register__tagline {
+	margin: 0;
+	color: #7184a1;
+	font-size: 18px;
+}
+
+.register__panel {
+	box-sizing: border-box;
+	width: min(100%, 445px);
+	padding: 38px 44px;
+	border: 1px solid #e0e9f5;
+	border-radius: 12px;
+	background: #ffffff;
+	box-shadow: 0 12px 36px rgb(42 86 145 / 6%);
+}
+
+.register__heading {
+	margin: 0 0 8px;
+	font-size: 28px;
+}
+
+.register__intro {
+	margin: 0 0 26px;
+	color: #7184a1;
+	font-size: 15px;
+}
+
+.register__form {
+	display: flex;
+	flex-direction: column;
+	gap: 17px;
+}
+
+.register__field {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.register__label {
+	color: #506681;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.register__input {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 12px 14px;
+	border: 1px solid #dce5f1;
+	border-radius: 7px;
+	background: #ffffff;
+	color: #14263e;
+	font: inherit;
+	font-size: 14px;
+}
+
+.register__input::placeholder {
+	color: #9aaac0;
+}
+
+.register__input:focus {
+	border-color: #4b7ff0;
+	outline: 2px solid rgb(75 127 240 / 15%);
+}
+
+.register__submit {
+	margin-top: 7px;
+	padding: 13px 16px;
+	border: 0;
+	border-radius: 7px;
+	background: #3975ed;
+	color: #ffffff;
+	font: inherit;
+	font-size: 15px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.register__submit:hover {
+	background: #2e68dc;
+}
+
+.register__divider {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 22px 0;
+	color: #8192aa;
+	font-size: 13px;
+}
+
+.register__divider::before,
+.register__divider::after {
+	flex: 1;
+	height: 1px;
+	background: #e3eaf3;
+	content: "";
+}
+
+.register__login {
+	margin: 0;
+	color: #7184a1;
+	font-size: 13px;
+	text-align: center;
+}
+
+.register__link {
+	margin-left: 4px;
+	color: #3975ed;
+}
+
+@media (max-width: 700px) {
+	.register {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr;
+	}
+
+	.register__brand {
+		padding: 34px 24px 16px;
+	}
+
+	.register__brand-name {
+		font-size: 34px;
+	}
+
+	.register__tagline {
+		font-size: 16px;
+	}
+
+	.register__panel-wrap {
+		align-items: flex-start;
+		padding: 12px 20px 36px;
+	}
+
+	.register__panel {
+		padding: 32px 26px;
+	}
+}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block head %}
+		<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+{% endblock %}
+
+{% block content %}
+	<section class="register" aria-label="Create a Quizzer account">
+		<div class="register__brand">
+			<div class="register__brand-copy">
+				<h1 class="register__brand-name">Quizzer</h1>
+				<p class="register__tagline">Learn. Practice. Remember.</p>
+			</div>
+		</div>
+		<div class="register__panel-wrap">
+			<div class="register__panel">
+				<h2 class="register__heading">Create account</h2>
+				<p class="register__intro">Get started with Quizzer today.</p>
+				<form class="register__form" method="post">
+					{{ form.hidden_tag() }}
+					<label class="register__field">
+						<span class="register__label">Username</span>
+						<input class="register__input" type="text" name="username" placeholder="Choose a username" autocomplete="username" required>
+					</label>
+					<label class="register__field">
+						<span class="register__label">Password</span>
+						<input class="register__input" type="password" name="password" placeholder="Create a password" autocomplete="new-password" required>
+					</label>
+					<label class="register__field">
+						<span class="register__label">Confirm password</span>
+						<input class="register__input" type="password" name="confirm_password" placeholder="Confirm your password" autocomplete="new-password" required>
+					</label>
+					<button class="register__submit" type="submit">Create account</button>
+				</form>
+				<div class="register__divider"><span>or</span></div>
+				<p class="register__login">Already have an account? <a class="register__link" href="{{ url_for('main.login') }}">Log in</a></p>
+			</div>
+		</div>
+	</section>
+{% endblock %}
